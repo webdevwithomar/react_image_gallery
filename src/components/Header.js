@@ -2,7 +2,7 @@ import React from 'react';
 import Search from './Search';
 import Nav from './Nav';
 
-class Header extends React.Component {
+export default class Header extends React.Component {
   render() {
     return (
       <header>
@@ -12,5 +12,3 @@ class Header extends React.Component {
     )
   }
 }
-
-export default Header;

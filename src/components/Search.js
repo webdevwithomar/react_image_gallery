@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Search extends React.Component {
+export default class Search extends React.Component {
   render() {
     return (
       <form className="search-form">
@@ -15,5 +15,3 @@ class Search extends React.Component {
     )
   }
 }
-
-export default Search;

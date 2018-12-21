@@ -1,20 +1,21 @@
 import React from 'react';
 import Photo from './Photo';
 
-class PhotoContainer extends React.Component {
+export default class PhotoContainer extends React.Component {
   render() {
     return (
       <div className="photo-container">
         <h2>Results</h2>
         <ul>
-          <Photo />
-          <Photo />
-          <Photo />
-          <Photo />
+          {
+            this.props.gallery.map(image => {
+              return (
+                <Photo url={`https://farm${image.farm}.staticflickr.com/${image.server}/${image.id}_${image.secret}.jpg`} key={image.id} />
+              )
+            })
+          }
         </ul>
       </div>
     )
   }
 }
-
-export default PhotoContainer;

@@ -4,7 +4,7 @@ import './App.css';
 import axios from 'axios';
 import Header from './components/Header'
 import PhotoContainer from './components/PhotoContainer';
-import apiKey from './config.js';
+import apiKey from './config';
 
 // Storing the apiKey into a variable
 const api = apiKey
@@ -20,11 +20,11 @@ export default class App extends Component {
 
   // Lifecycle method
   componentDidMount() {
-    axios.get(api)
-      .then((res) => {
+    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${api}&tags=sunsets&per_page=24&format=json&nojsoncallback=1`)
+      .then(res => {
         this.setState({
-          photos: res.data
-        });
+          photos: res.data.photos.photo
+        })
       })
       .catch(function (error) {
         console.log('Error fetching data from flickr', error);
@@ -32,11 +32,10 @@ export default class App extends Component {
   }
 
   render() {
-    console.log(this.state.photos);
     return (
       <div className="container">
         <Header />
-        <PhotoContainer />
+        <PhotoContainer gallery={this.state.photos} />
       </div>
     );
   }
