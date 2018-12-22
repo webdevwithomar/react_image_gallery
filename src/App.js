@@ -1,5 +1,9 @@
 // All the imports
 import React, { Component } from 'react';
+import {
+  BrowserRouter,
+  Route
+} from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
 import Header from './components/Header'
@@ -32,10 +36,12 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="container">
-        <Header searchPhoto={this.performSearch} />
-        <PhotoContainer gallery={this.state.photos} />
-      </div>
+      <BrowserRouter>
+        <div className="container">
+          <Header searchPhoto={this.performSearch} />
+          <PhotoContainer gallery={this.state.photos} />
+        </div>
+      </BrowserRouter>
     );
   }
 }
