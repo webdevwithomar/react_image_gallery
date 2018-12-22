@@ -8,6 +8,7 @@ import './App.css';
 import axios from 'axios';
 import Header from './components/Header'
 import PhotoContainer from './components/PhotoContainer';
+import Nature from './components/Nature';
 import apiKey from './config';
 
 // Storing the apiKey into a variable
@@ -39,7 +40,10 @@ export default class App extends Component {
       <BrowserRouter>
         <div className="container">
           <Header searchPhoto={this.performSearch} />
-          <PhotoContainer gallery={this.state.photos} />
+          <Route exact path="/" render={() => <PhotoContainer gallery={this.state.photos} />} />
+          <Route path="/nature" render={() => <Nature searchFor="nature" name="Nature" />} />
+          <Route path="/tree" render={() => <Nature searchFor="tree" name="Tree" />} />
+          <Route path="/mountain" render={() => <Nature searchFor="mountain" name="Mountain" />} />
         </div>
       </BrowserRouter>
     );
