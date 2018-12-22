@@ -18,9 +18,8 @@ export default class App extends Component {
     }
   }
 
-  // Lifecycle method
-  componentDidMount() {
-    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${api}&tags=sunsets&per_page=24&format=json&nojsoncallback=1`)
+  performSearch = search => {
+    axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${api}&text=${search}&per_page=24&format=json&nojsoncallback=1`)
       .then(res => {
         this.setState({
           photos: res.data.photos.photo
@@ -34,7 +33,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="container">
-        <Header />
+        <Header searchPhoto={this.performSearch} />
         <PhotoContainer gallery={this.state.photos} />
       </div>
     );
