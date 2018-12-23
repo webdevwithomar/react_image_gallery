@@ -2,13 +2,16 @@
 import React, { Component } from 'react';
 import {
   BrowserRouter,
-  Route
+  Route,
+  Switch
 } from 'react-router-dom';
 import './App.css';
 import axios from 'axios';
 import Header from './components/Header'
 import PhotoContainer from './components/PhotoContainer';
 import Nature from './components/Nature';
+import Tree from './components/Tree';
+import Mountain from './components/Mountain';
 import apiKey from './config';
 
 // Storing the apiKey into a variable
@@ -40,10 +43,13 @@ export default class App extends Component {
       <BrowserRouter>
         <div className="container">
           <Header searchPhoto={this.performSearch} />
-          <Route exact path="/" render={() => <PhotoContainer gallery={this.state.photos} />} />
-          <Route path="/nature" render={() => <Nature searchFor="nature" name="Nature" />} />
-          <Route path="/tree" render={() => <Nature searchFor="tree" name="Tree" />} />
-          <Route path="/mountain" render={() => <Nature searchFor="mountain" name="Mountain" />} />
+
+          <Switch>
+            <Route path="/search" render={() => <PhotoContainer gallery={this.state.photos} />} />
+            <Route exact path="/nature" render={() => <Nature searchFor="nature" name="Nature" />} />
+            <Route exact path="/tree" render={() => <Tree searchFor="tree" name="Tree" />} />
+            <Route exact path="/mountain" render={() => <Mountain searchFor="mountain" name="Mountain" />} />
+          </Switch>
         </div>
       </BrowserRouter>
     );
