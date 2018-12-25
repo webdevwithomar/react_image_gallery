@@ -123,3 +123,10 @@ input {
     width: 100px;
   }
 }
+
+/* Styles By Me */
+
+.loading {
+  width: 150px;
+  height: 150px;
+}

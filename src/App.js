@@ -25,7 +25,8 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      photos: []
+      photos: [],
+      loading: true
     }
   }
 
@@ -33,7 +34,8 @@ export default class App extends Component {
     axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${api}&text=${search}&per_page=24&format=json&nojsoncallback=1`)
       .then(res => {
         this.setState({
-          photos: res.data.photos.photo
+          photos: res.data.photos.photo,
+          loading: false
         })
       })
       .catch(function (error) {
@@ -49,7 +51,7 @@ export default class App extends Component {
           <Search searchPhoto={this.performSearch} />
           <Nav />
           <Switch>
-            <Route path="/search/:name" render={() => <PhotoContainer gallery={this.state.photos} />} />
+            <Route path="/search/:name" render={() => <PhotoContainer loading={this.state.loading} gallery={this.state.photos} />} />
             <Route exact path="/" render={() => <Nature searchFor="nature" name="Nature" />} />
             <Route exact path="/nature" render={() => <Nature searchFor="nature" name="Nature" />} />
             <Route exact path="/tree" render={() => <Tree searchFor="tree" name="Tree" />} />
