@@ -1,13 +1,11 @@
 import React from 'react';
-import Search from './Search';
-import Nav from './Nav';
 
 export default class Header extends React.Component {
   render() {
     return (
       <header>
-        <Search searchPhoto={this.props.searchPhoto} />
-        <Nav />
+        <h1>React Photo Gallery App</h1>
+        <p>By Omar</p>
       </header>
     )
   }
