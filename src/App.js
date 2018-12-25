@@ -30,6 +30,8 @@ export default class App extends Component {
     }
   }
 
+  // Search, fetch, load
+
   performSearch = search => {
     axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${api}&text=${search}&per_page=24&format=json&nojsoncallback=1`)
       .then(res => {

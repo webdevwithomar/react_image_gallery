@@ -14,6 +14,8 @@ export default class Nature extends React.Component {
     }
   }
 
+  // Using axios to fetch data
+
   componentDidMount = () => {
     axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${api}&text=${this.props.searchFor}&per_page=24&format=json&nojsoncallback=1`)
       .then(res => {
@@ -25,6 +27,7 @@ export default class Nature extends React.Component {
         console.log('Error fetching data from flickr', error);
       })
   }
+
   render() {
     return (
       <div className="photo-container">
