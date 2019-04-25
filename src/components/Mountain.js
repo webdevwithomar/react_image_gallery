@@ -1,10 +1,9 @@
 import React from 'react';
 import Photo from './Photo';
 import axios from 'axios';
-import apiKey from '../config';
 
 // Storing the apiKey into a variable
-const api = apiKey
+const api = 'a5b2fc2001dd86380c2dd8f6352ddd26';
 
 export default class Nature extends React.Component {
   constructor() {
