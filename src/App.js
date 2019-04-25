@@ -59,6 +59,7 @@ export default class App extends Component {
             <Route exact path="/mountain" render={() => <Mountain searchFor="mountain" name="Mountain" />} />
             <Route component={NotFound} />
           </Switch>
+          <p>Developed by <a href="https://github.com/webdevwithomar">Omar Faruque</a></p>
         </div>
       </BrowserRouter>
     );
