@@ -14,11 +14,10 @@ import Nav from './components/Nav';
 import Nature from './components/Nature';
 import Tree from './components/Tree';
 import Mountain from './components/Mountain';
-import apiKey from './config';
 import NotFound from './components/NotFound';
 
 // Storing the apiKey into a variable
-const api = apiKey
+const api = 'a5b2fc2001dd86380c2dd8f6352ddd26';
 
 // The top level component
 export default class App extends Component {
